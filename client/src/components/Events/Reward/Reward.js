@@ -1,56 +1,37 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Grid, CircularProgress, Typography, Box, Button, Container, Divider } from "@material-ui/core";
-import moment from "moment";
-
-import Event from "./Event/Event";
+import { Link, useParams } from "react-router-dom";
+import { Paper, Typography, Button, Grid, Container } from "@material-ui/core";
+import { questions } from "../../Quiz/qData";
 import useStyles from "./styles";
 
-const Events = () => {
-  const { events, isLoading } = useSelector((state) => {
-    return state.events;
-  });
-  const current = events.filter((event) => {
-    const date = moment(new Date(event.createdAt)).format("DD-MM-YYYY");
-    const currdate = moment(new Date()).format("DD-MM-YYYY");
-    // return date == currdate;
-    return event.status == "Not Reported" && date == currdate;
-  });
+const Reward = () => {
   const classes = useStyles();
-  const length = current.length;
-  var count = 0;
-  if (!current.length && !isLoading)
-    return (
-      <Container className={classes.box}>
-        <Grid container className={classes.noPosts}>
-          <Grid item xs={12}>
-            <Typography variant="h4" style={{ fontWeight: "500", display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              No Events
+  const reward = useParams();
+  const rewardId = reward.id;
+  return (
+    <Container className={classes.quiz} component="main" maxWidth="xs">
+      <Grid className={classes.paper}>
+        <Paper className={classes.final}>
+          <Typography className={classes.quizTitle}>Enjoy your reward</Typography>
+          {/* <Typography className={classes.points}>{questions[2].answerOptions[rewardId - 1].answerText}</Typography> */}
+          {questions[2].answerOptions[rewardId - 1].points.map((item, index) => (
+            <Typography className={classes.points} key={index}>
+              {item}
             </Typography>
-          </Grid>
-        </Grid>
-      </Container>
-    );
-
-  return isLoading ? (
-    <Grid className={classes.loading}>
-      <CircularProgress />
-    </Grid>
-  ) : (
-    <Container className={classes.box}>
-      <Grid className={classes.container} container alignItems="stretch">
-        {current.map((event) => {
-          count = count + 1;
-          return (
-            <Grid key={event._id} item xs={12} sm={12} md={12} lg={12}>
-              <Event event={event} />
-              {length != count && <Divider />}
-            </Grid>
-          );
-        })}
+          ))}
+          <img
+            className={classes.img}
+            alt={questions[2].answerOptions[rewardId - 1].answerText}
+            src={questions[2].answerOptions[rewardId - 1].ansImg}
+            title={questions[2].answerOptions[rewardId - 1].answerText}
+          />
+          <Button component={Link} to="/home" className={classes.button} variant="contained">
+            Back
+          </Button>
+        </Paper>
       </Grid>
     </Container>
   );
 };
-export default Events;
+
+export default Reward;
