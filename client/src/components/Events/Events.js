@@ -10,7 +10,7 @@ const Events = () => {
     return state.events;
   });
 
-  const classes = useStyles();
+  const classes = useStyles();  
 
   if (!events.length && !isLoading)
     return (
