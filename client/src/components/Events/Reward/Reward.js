@@ -1,40 +1,56 @@
-import React, { useEffect } from "react";
-import { Grid, Typography, IconButton } from "@material-ui/core";
-import { Dialog, DialogTitle, DialogContent } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import { questions } from "../../Quiz/qData";
-import useStyles from "../Event/styles";
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Grid, CircularProgress, Typography, Box, Button, Container, Divider } from "@material-ui/core";
+import moment from "moment";
 
-const Reward = ({ openFavoritePopup, setOpenFavoritePopup, event }) => {
-  console.log("reward");
+import Event from "./Event/Event";
+import useStyles from "./styles";
+
+const Events = () => {
+  const { events, isLoading } = useSelector((state) => {
+    return state.events;
+  });
+  const current = events.filter((event) => {
+    const date = moment(new Date(event.createdAt)).format("DD-MM-YYYY");
+    const currdate = moment(new Date()).format("DD-MM-YYYY");
+    // return date == currdate;
+    return event.status == "Not Reported" && date == currdate;
+  });
   const classes = useStyles();
-  return (
-    <Dialog open={openFavoritePopup} maxWidth="lg" classes={{ paper: classes.dialogWrapper }}>
-      <Grid container>
-        <Grid item xs={12} md={12}>
-          <DialogTitle className={classes.dialogTitle} style={{ paddingTop: "0", paddingBottom: "0" }}>
-            <div style={{ display: "flex" }}>
-              <Typography variant="h5" component="h6" style={{ flexGrow: 1, display: "flex", alignItems: "center", textAlign: "center", fontWeight: "530" }}>
-                Reward
-              </Typography>
-              <IconButton
-                className={classes.root1}
-                color="secondary"
-                onClick={() => {
-                  setOpenFavoritePopup(false);
-                }}
-              >
-                <CloseIcon />
-              </IconButton>
-            </div>
-          </DialogTitle>
-          <DialogContent className={classes.dialogContent} dividers>
-            <img className={classes.img} src={questions[2].answerOptions[event.reward - 1].ansImg} title={questions[2].answerOptions[event.reward - 1].answerText} />
-          </DialogContent>
+  const length = current.length;
+  var count = 0;
+  if (!current.length && !isLoading)
+    return (
+      <Container className={classes.box}>
+        <Grid container className={classes.noPosts}>
+          <Grid item xs={12}>
+            <Typography variant="h4" style={{ fontWeight: "500", display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+              No Events
+            </Typography>
+          </Grid>
         </Grid>
+      </Container>
+    );
+
+  return isLoading ? (
+    <Grid className={classes.loading}>
+      <CircularProgress />
+    </Grid>
+  ) : (
+    <Container className={classes.box}>
+      <Grid className={classes.container} container alignItems="stretch">
+        {current.map((event) => {
+          count = count + 1;
+          return (
+            <Grid key={event._id} item xs={12} sm={12} md={12} lg={12}>
+              <Event event={event} />
+              {length != count && <Divider />}
+            </Grid>
+          );
+        })}
       </Grid>
-    </Dialog>
+    </Container>
   );
 };
-
-export default Reward;
+export default Events;

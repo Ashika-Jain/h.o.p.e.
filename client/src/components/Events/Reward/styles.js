@@ -1,62 +1,42 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
-  root: {
-    "& .MuiTextField-root": {
-      marginBottom: theme.spacing(1),
+  container: {
+    padding: "0",
+    color: "white",
+    loading: {
+      marginLeft: "20px",
     },
   },
-  root1: {
-    minWidth: 0,
-    margin: theme.spacing(0.1),
-  },
-  paper: {
-    padding: "0",
-  },
-  form: {
+  noPosts: {
+    padding: "1rem",
+    color: "#068fa0",
     display: "flex",
-    flexWrap: "wrap",
+    height: "50vh",
     justifyContent: "center",
   },
-  fileInput: {
-    width: "97%",
-    margin: "10px 0",
-  },
-  fullGrid: {
-    marginTop: 0,
-  },
-  buttonSubmit: {
-    marginBottom: 10,
-  },
-  dialogWrapper: {
-    paddingBottom: theme.spacing(0.5),
-    paddingRight: theme.spacing(2),
-    paddingLeft: theme.spacing(2),
-    position: "absolute",
+  loading: {
+    display: "flex",
+    color: "#068fa0",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     height: "50vh",
-    width: "70vw",
-    top: theme.spacing(2),
-    [theme.breakpoints.down("sm")]: {
-      width: "90vw",
-    },
   },
-  img: {
-    maxWidth: "50vw",
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "50vw",
-    },
-    [theme.breakpoints.down("xs")]: {
-      paddingTop: "10px",
-      maxWidth: "75vw",
-    },
+  card: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    borderRadius: "0rem",
+    position: "relative",
   },
-  dialogTitle: {
-    paddingRight: theme.spacing(1),
+  cardContent: {
+    width: "100%",
+    padding: "0.5rem 1rem 0",
   },
-  dialogContent: {
-    [theme.breakpoints.down("xs")]: {
-      paddingLeft: "5px",
-      paddingRight: "5px",
-    },
+  box: {
+    backgroundColor: "#ffffff",
+    borderRadius: "5px",
+    border: "1px solid #068fa0",
   },
 }));
