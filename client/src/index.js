@@ -6,6 +6,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import thunk from "redux-thunk";
 import reducers from "./reducers/index";
+import "./index.css";
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
@@ -15,4 +16,4 @@ ReactDOM.render(
     <App />
   </Provider>,
   document.getElementById("root")
-);
+);                                
