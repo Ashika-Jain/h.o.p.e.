@@ -15,13 +15,13 @@ export const createEvent = (event, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
     const { data } = await api.createEvent(event);
-    history.push("/home");
     dispatch({ type: CREATE, payload: data });
+    history.push("/home");
   } catch (error) {
     console.log(error);
   }
 };
-export const updateEvent = (id, event, history) => async (dispatch) => {
+export const updateEvent = (id, event) => async (dispatch) => {
   try {
     const { data } = await api.updateEvent(id, event);
     dispatch({ type: UPDATE, payload: data });

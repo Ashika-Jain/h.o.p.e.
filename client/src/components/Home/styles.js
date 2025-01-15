@@ -19,14 +19,14 @@ export default makeStyles((theme) => ({
   },
   box: {
     alignItems: "center",
-    backgroundColor: "#ffffff",
+    backgroundColor: "transparent",
     borderRadius: "5px",
-    border: "1px solid #068fa0",
+    border: "1px dashed #068fa0",
   },
   button: {
     color: "#fff",
-    marginTop: '0.6rem',
-    marginBottom: '0.5rem',
+    marginTop: "0.6rem",
+    marginBottom: "0.5rem",
     backgroundColor: "#068fa0",
     borderRadius: 15,
     "&:hover": {

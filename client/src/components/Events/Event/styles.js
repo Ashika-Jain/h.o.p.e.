@@ -37,24 +37,23 @@ export default makeStyles((theme) => ({
   applyCompleted: {
     transform: "rotate(0deg)",
     marginRight: "1rem",
-    marginTop: "5px",
     textTransform: "none",
     color: "#024649",
     borderRadius: 15,
     borderColor: "#cdf6f8",
-    backgroundColor: '#cdf6f8',
+    backgroundColor: "#cdf6f8",
     transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
-    '&:hover': {
-      backgroundColor: '#cdf6e8',
+    "&:hover": {
+      backgroundColor: "#cdf6e8",
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "3vmin",
     },
-    fontWeight: '600',
-    marginTop: '0.5rem',
-    marginBottom: '0.5rem'
+    fontWeight: "600",
+    marginTop: "0.5rem",
+    marginBottom: "0.5rem",
   },
   applyCancelled: {
     transform: "rotate(0deg)",
@@ -66,18 +65,17 @@ export default makeStyles((theme) => ({
     transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
-    marginTop: '0.5rem',
-    marginBottom: '0.5rem',
+    marginTop: "0.5rem",
+    marginBottom: "0.5rem",
     [theme.breakpoints.down("xs")]: {
       fontSize: "3vmin",
     },
-    backgroundColor: '#ffdadb',
-    fontWeight: '600',
-    '&:hover': {
-      backgroundColor: '#fcdacb',
-    }
+    backgroundColor: "#ffdadb",
+    fontWeight: "600",
+    "&:hover": {
+      backgroundColor: "#fcdacb",
+    },
   },
-
   expandOpen: {
     transform: "rotate(180deg)",
   },
@@ -99,7 +97,7 @@ export default makeStyles((theme) => ({
   },
   overlay2: {
     position: "absolute",
-    top: "0px",
+    top: "5px",
     right: "0px",
     color: "#0a4849",
   },
@@ -109,7 +107,6 @@ export default makeStyles((theme) => ({
   cardActions: {
     display: "flex",
     alignItems: "right",
-    paddingRight: "0.5rem",
     [theme.breakpoints.down(350)]: {
       flexDirection: "column",
       alignItems: "center",
@@ -122,6 +119,6 @@ export default makeStyles((theme) => ({
   },
   cardContent: {
     width: "100%",
-    padding: "0.5rem 1rem 0",
+    padding: "0.5rem 0",
   },
 }));

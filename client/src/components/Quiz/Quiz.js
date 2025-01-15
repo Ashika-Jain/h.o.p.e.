@@ -36,7 +36,6 @@ const Quiz = () => {
 
   const handleSubmit = () => {
     const eventData = { emotion: emojiId, task: taskId, reward: rewardId };
-    console.log(eventData);
     dispatch(createEvent(eventData, history));
   };
   return (
@@ -46,9 +45,16 @@ const Quiz = () => {
           <Paper className={classes.final}>
             <Typography className={classes.quizTitle}>Ready for your task?</Typography>
             {questions[1].answerOptions[taskId - 1].points.map((item, index) => (
-              <Typography className={classes.points} key={index}>{item}</Typography>
+              <Typography className={classes.points} key={index}>
+                {item}
+              </Typography>
             ))}
-            <img className={classes.img} alt={questions[1].answerOptions[taskId - 1].answerText} src={questions[1].answerOptions[taskId - 1].ansImg} title={questions[1].answerOptions[taskId - 1].answerText} />
+            <img
+              className={classes.img}
+              alt={questions[1].answerOptions[taskId - 1].answerText}
+              src={questions[1].answerOptions[taskId - 1].ansImg}
+              title={questions[1].answerOptions[taskId - 1].answerText}
+            />
             <Button className={classes.acceptBtn} variant="contained" onClick={() => handleSubmit()}>
               I Accept
             </Button>
@@ -57,22 +63,8 @@ const Quiz = () => {
           <>
             <Typography className={classes.quizTitle}>{questions[currentQ].questionText}</Typography>
             {questions[currentQ].answerOptions.map((option) => (
-              <Button variant="outlined" className={classes.option} onClick={() => handleSubmitOptions(option.id)}>
+              <Button variant="outlined" key={option.id} className={classes.option} onClick={() => handleSubmitOptions(option.id)}>
                 {option.ansEmo} {option.answerText}
-                {/* <CardContent className={classes.cardContent}>
-                  <Grid container item xs={12}>
-                    <Grid item xs={12} sm={6} md={6} lg={6} className={classes.optionsGrid}>
-                      <Typography style={{ color: "#0a4849" }} variant="h4" display="inline" className={classes.quizTitle}>
-                        {option.answerText}
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={6} lg={6} className={classes.optionsGrid}>
-                      <CardMedia>
-                        <img className={classes.img} alt={option.answerText} src={option.ansImg} title={option.answerText} />
-                      </CardMedia>
-                    </Grid>
-                  </Grid>
-                </CardContent> */}
               </Button>
             ))}
           </>
