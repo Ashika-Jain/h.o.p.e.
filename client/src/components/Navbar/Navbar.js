@@ -15,12 +15,12 @@ const Navbar = () => {
       {user ? (
         <Link to="/home" className={classes.brandContainer}>
           {/* <img className={classes.image} src={logo} alt="icon" /> */}
-          <p className={classes.title}>aeiou</p>
+          <p className={classes.title}>H.O.P.E</p>
         </Link>
       ) : (
         <Link to="/" className={classes.brandContainer}>
           {/* <img className={classes.image} src={logo} alt="icon" /> */}
-          <p className={classes.title}>aeiou</p>
+          <p className={classes.title}>H.O.P.E</p>
         </Link>
       )}
       <Toolbar className={classes.toolbar} variant="dense">

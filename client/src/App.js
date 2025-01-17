@@ -5,6 +5,7 @@ import Auth from "./components/Auth/Auth";
 import Home from "./components/Home/Home";
 import Quiz from "./components/Quiz/Quiz";
 import Reward from "./components/Events/Reward/Reward";
+import 'font-awesome/css/font-awesome.min.css';
 
 const App = () => {
   return (
