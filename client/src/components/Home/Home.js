@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container, Grid, Typography, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import moment from "moment";
@@ -7,11 +7,15 @@ import { getEvents } from "../../actions/events";
 import Events from "../Events/Events";
 import useStyles from "./styles";
 import EventsTable from "../EventsTable/EventsTable";
+import Chatbot from "../Chatbot/Chatbot"; // Import the Chatbot component
 
 const Home = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
+
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false); // State for controlling chatbot visibility
+  const [isBackgroundBlurred, setIsBackgroundBlurred] = useState(false); // State for controlling background blur
 
   let { events } = useSelector((state) => {
     return state.events;
@@ -49,6 +53,16 @@ const Home = () => {
     counter = 0;
   }
 
+  const openChatbot = () => {
+    setIsChatbotOpen(true);
+    setIsBackgroundBlurred(true);
+  };
+
+  const closeChatbot = () => {
+    setIsChatbotOpen(false);
+    setIsBackgroundBlurred(false);
+  };
+
   return (
     <Grid className={classes.gridContainer} container justifyContent="center" alignItems="stretch" spacing={3}>
       <Grid item xs={12} sm={11} md={8} lg={7}>
@@ -77,6 +91,24 @@ const Home = () => {
       <Grid item xs={12} sm={11} md={8} lg={7}>
         <EventsTable counter={counter} />
       </Grid>
+
+      {/* Chatbot Icon */}
+      <div className={classes.chatIconContainer} onClick={openChatbot}>
+        <div className={`${classes.chatIcon} ${classes.chatIconHover}`}>
+          <i className="fa fa-comments" style={{ color: "white", fontSize: "24px" }}></i>
+        </div>
+        <div className={classes.chatText}>Chatbot</div>
+      </div>
+
+      {/* Background blur when chatbot is open */}
+      {isBackgroundBlurred && <div className={classes.overlay} onClick={closeChatbot}></div>}
+
+      {/* Chatbot component */}
+      {isChatbotOpen && (
+        <div className={classes.chatbotModal}>
+          <Chatbot />
+        </div>
+      )}
     </Grid>
   );
 };
