@@ -1,6 +1,6 @@
 # h.o.p.e
 
-<p align="center"><img src="" width="100" height="100"></p>
+<p align="center"><img src="assets/emotion.png" width="100" height="100"></p>
 
 ### 🌟 hope (Help Overcome Personal Emotions) is a web application that gamifies 💻 stress/anxiety/depression management in an actionable manner to provide peace of mind.
  
@@ -17,53 +17,47 @@
 
 ## A sneak peek into what we have here!
 
-- Our website is deployed at 
+- Our website is deployed at https://incomparable-treacle-2fcdec.netlify.app/
 
 ### Front Page
 
-<img src="" width="480" height="270">
+<img src="assets/FrontPage.png" width="480" height="270">
 
 ### Home Page
 
-<img src="" width="480" height="270">
-
-<img src="" width="480" height="270">
+<img src="assets/HomePage.png" width="480" height="270">
 
 ### Sign In Page
 
-<img src="" width="480" height="270">
+<img src="assets/SignIn.png" width="480" height="270">
 
 ### Sign Up Page
 
-<img src="" width="480" height="270">
+<img src="assets/SignUp.png" width="480" height="270">
 
 ### Emotion Quiz
 
-<img src="" width="480" height="270">
+<img src="assets/EmotionQuiz.png" width="480" height="270">
 
 ### Task Quiz
 
-<img src="" width="480" height="270">
+<img src="assets/TaskQuiz.png" width="480" height="270">
 
 ### Reward Quiz
 
-<img src="" width="480" height="270">
+<img src="assets/RewardQuiz.png" width="480" height="270">
 
 ### Accept Task
 
-<img src="" width="480" height="270">
+<img src="assets/AcceptTask.png" width="480" height="270">
 
 ### Home Page after adding Events
 
-<img src="" width="480" height="270">
-
-<img src="" width="480" height="270">
-
-<img src="" width="480" height="270">
+<img src="assets/AddingEvents.png" width="480" height="270">
 
 ### Reward Page
 
-<img src="" width="480" height="270">
+<img src="assets/RewardPage.png" width="480" height="270">
 
 ## Technology Stack
 
